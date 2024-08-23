@@ -2,16 +2,15 @@
 @import "../../shared/styles/mixins.module";
 
 .container {
-    .actions {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
+  .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
 
-        .new {
-
-        }
+    .new {
     }
-    .content {
-        padding: 1rem 2rem;
-    }
+  }
+  .content {
+    padding: 1rem 2rem;
+  }
 }
