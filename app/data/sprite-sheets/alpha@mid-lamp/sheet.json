@@ -1,0 +1,21 @@
+{
+  "frames": {
+    "mid-lamp": {
+      "frame": { "x": 0, "y": 0, "w": 24, "h": 44 },
+      "sourceSize": { "w": 24, "h": 44 },
+      "anchor": { "x": 0, "y": 0 }
+    },
+    "mid-lamp-icon": {
+      "frame": { "x": 24, "y": 0, "w": 12, "h": 21 },
+      "sourceSize": { "w": 12, "h": 21 },
+      "anchor": { "x": 0, "y": 0 }
+    }
+  },
+  "animations": {},
+  "meta": {
+    "format": "RGBA8888",
+    "image": "sprite.png",
+    "size": { "w": 44, "h": 44 },
+    "scale": 1
+  }
+}

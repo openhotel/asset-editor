@@ -12,7 +12,8 @@ export const HeaderComponent = () => {
           <LinkComponent to="/file-manager">File Manager</LinkComponent>
           <LinkComponent to="/sprite-sheets">Sprite Sheets</LinkComponent>
           <LinkComponent to="/furniture">Furniture</LinkComponent>
-          <LinkComponent to="/human-clothes">Human and Clothes</LinkComponent>
+          <LinkComponent to="/human">Human</LinkComponent>
+          <LinkComponent to="/clothes">Clothes</LinkComponent>
           <LinkComponent to="/public-rooms">Public Rooms</LinkComponent>
         </div>
       </ContainerComponent>

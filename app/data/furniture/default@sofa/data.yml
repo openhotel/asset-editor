@@ -1,0 +1,76 @@
+version: 1
+id: default@sofa
+type: furniture
+icon:
+  texture: icon
+  bounds:
+    width: 24
+    height: 24
+direction:
+  north:
+    textures:
+      - texture: base-north
+        bounds:
+          width: 48
+          height: 50
+        pivot:
+          x: -24
+          y: 12
+        position:
+          x: 0
+          z: 0
+        zIndex: 0
+      - texture: over-north
+        bounds:
+          width: 22
+          height: 30
+        pivot:
+          x: -18
+          y: 12
+        position:
+          x: 0
+          z: 0
+        zIndex: 1
+  east:
+    textures:
+      - texture: base-east
+        bounds:
+          width: 48
+          height: 50
+        pivot:
+          x: -24
+          y: 12
+        position:
+          x: 0
+          z: 0
+        zIndex: 0
+  south:
+    textures:
+      - texture: base-south
+        bounds:
+          width: 48
+          height: 43
+        pivot:
+          x: -24
+          y: 12
+        position:
+          x: 0
+          z: 0
+        zIndex: 0
+  west:
+    textures:
+      - texture: base-west
+        bounds:
+          width: 48
+          height: 43
+        pivot:
+          x: -24
+          y: 12
+        position:
+          x: 0
+          z: 0
+        zIndex: 0
+bounds:
+  height: 26
+  depth: 1
+  width: 1

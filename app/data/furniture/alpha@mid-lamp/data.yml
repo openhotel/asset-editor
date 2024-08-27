@@ -1,0 +1,24 @@
+version: 1
+id: alpha@mid-lamp
+type: furniture
+icon:
+  texture: mid-lamp-icon
+  bounds:
+    width: 12
+    height: 21
+size:
+  width: 1
+  depth: 1
+  height: 1
+direction:
+  north:
+    textures:
+      - texture: mid-lamp
+        bounds:
+          width: 24
+          height: 44
+        pivot:
+          x: 0
+          y: 4
+        zIndex: 0
+        hitArea: [0, 0, 24, 0, 24, 44, 0, 44]

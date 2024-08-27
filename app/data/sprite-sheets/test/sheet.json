@@ -1,0 +1,26 @@
+{
+  "frames": {
+    "123456": {
+      "frame": { "x": 0, "y": 0, "w": 0, "h": 0 },
+      "anchor": { "x": 0, "y": 0 },
+      "sourceSize": { "w": 0, "h": 0 }
+    },
+    "aha": {
+      "frame": { "x": 0, "y": 0, "w": 0, "h": 0 },
+      "anchor": { "x": 0, "y": 0 },
+      "sourceSize": { "w": 0, "h": 0 }
+    },
+    "some": {
+      "frame": { "x": 0, "y": 0, "w": 50, "h": 23 },
+      "anchor": { "x": 0, "y": 0 },
+      "sourceSize": { "w": 50, "h": 23 }
+    }
+  },
+  "anilmations": { "abc": ["123456", "aha", "some"] },
+  "meta": {
+    "format": "RGBA8888",
+    "image": "sprite.png",
+    "size": { "w": 128, "h": 128 },
+    "scale": 1
+  }
+}

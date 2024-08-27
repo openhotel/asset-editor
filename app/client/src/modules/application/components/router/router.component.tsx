@@ -7,6 +7,9 @@ import { FileManagerComponent } from "modules/file-manager";
 import { RedirectComponent } from "shared/components";
 import { SpriteSheetsComponent } from "modules/sprite-sheets";
 import { FurnitureComponent } from "modules/furniture";
+import { HumanComponent } from "modules/human";
+import { ClothesComponent } from "modules/clothes";
+import { PublicRoomsComponent } from "modules/public-rooms";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,18 @@ const router = createBrowserRouter([
       {
         path: "/file-manager",
         element: <FileManagerComponent />,
+      },
+      {
+        path: "/human",
+        element: <HumanComponent />,
+      },
+      {
+        path: "/clothes",
+        element: <ClothesComponent />,
+      },
+      {
+        path: "/public-rooms",
+        element: <PublicRoomsComponent />,
       },
       {
         path: "/",

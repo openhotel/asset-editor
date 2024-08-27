@@ -1,0 +1,26 @@
+{
+  "frames": {
+    "frame-east": {
+      "frame": { "x": 0, "y": 0, "w": 32, "h": 49 },
+      "anchor": { "x": 0, "y": 0 },
+      "sourceSize": { "w": 32, "h": 49 }
+    },
+    "frame-north": {
+      "frame": { "x": 32, "y": 0, "w": 32, "h": 49 },
+      "anchor": { "x": 0, "y": 0 },
+      "sourceSize": { "w": 32, "h": 49 }
+    },
+    "frame-icon": {
+      "frame": { "x": 0, "y": 49, "w": 16, "h": 24 },
+      "anchor": { "x": 0, "y": 0 },
+      "sourceSize": { "w": 16, "h": 24 }
+    }
+  },
+  "animations": {},
+  "meta": {
+    "format": "RGBA8888",
+    "image": "sprite.png",
+    "size": { "w": 74, "h": 74 },
+    "scale": 1
+  }
+}

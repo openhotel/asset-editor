@@ -54,7 +54,7 @@ export const FramesComponent: React.FC<Props> = ({
       },
     });
     //@ts-ignore
-    event.target.reset();
+    // event.target.reset();
     //@ts-ignore
     nameFrameRef.current.focus();
   };
