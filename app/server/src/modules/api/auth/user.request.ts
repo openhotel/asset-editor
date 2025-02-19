@@ -8,6 +8,7 @@ export const userRequest: RequestType = {
   pathname: "/user",
   func: async (request, url) => {
     const accountId = url.searchParams.get("accountId");
+    const accountToken = url.searchParams.get("accountToken");
     const {
       auth: { url: authUrl, appToken },
     } = System.getConfig();
@@ -16,6 +17,7 @@ export const userRequest: RequestType = {
       headers: {
         "app-token": appToken,
         "account-id": accountId,
+        "account-token": accountToken,
       },
     }).then((response) => response.json());
 

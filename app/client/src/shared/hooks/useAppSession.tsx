@@ -14,12 +14,13 @@ export const AppSessionProvider: React.FunctionComponent<ProviderProps> = ({
 }) => {
   const { get, set } = useCookies();
 
-  const $accountId = new URLSearchParams(
-    window.location.hash.replace("#", "?"),
-  ).get("accountId");
+  const params = new URLSearchParams(window.location.hash.replace("#", "?"));
+  const $accountId = params.get("accountId");
+  const $accountToken = params.get("accountToken");
 
   useEffect(() => {
     const accountId = $accountId ?? get("account-id");
+    const accountToken = $accountToken ?? get("account-token");
 
     if (window.location.hash) {
       window.history.replaceState("", document.title, window.location.pathname);
@@ -34,10 +35,14 @@ export const AppSessionProvider: React.FunctionComponent<ProviderProps> = ({
 
       if (accountId) {
         const { status } = await fetch(
-          `/api/auth/user?accountId=${accountId}`,
+          `/api/auth/user?accountId=${accountId}&accountToken=${accountToken}`,
         ).then((response) => response.json());
 
-        if (status === 200) return set("account-id", accountId, 1);
+        if (status === 200) {
+          set("account-id", accountId, 1);
+          set("account-token", accountToken, 1);
+          return;
+        }
       }
 
       fetch("/api/auth/redirect")
