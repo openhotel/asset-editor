@@ -109,26 +109,22 @@ export const FurnitureDataFormComponent: React.FC<Props> = () => {
           placeholder="icon.texture"
           defaultOption={furniture.icon.texture}
           options={texturesOptions}
-          onChange={(option) =>
+          onChange={(option) => {
             onChangeFurniture("icon.texture")({
               target: { value: option?.value },
-            })
-          }
+            });
+            const frame = sheet.frames[option?.value]?.frame;
+            if (!frame) return;
+
+            onChangeFurniture("icon.bounds.width")({
+              target: { value: frame.w },
+            });
+
+            onChangeFurniture("icon.bounds.height")({
+              target: { value: frame.h },
+            });
+          }}
           clearable={false}
-        />
-      </div>
-      <div className={styles.row}>
-        <InputComponent
-          placeholder="icon.bounds.width"
-          value={furniture.icon.bounds.width}
-          onChange={onChangeFurniture("icon.bounds.width")}
-          type="number"
-        />
-        <InputComponent
-          placeholder="icon.bounds.height"
-          value={furniture.icon.bounds.height}
-          onChange={onChangeFurniture("icon.bounds.height")}
-          type="number"
         />
       </div>
       <hr />

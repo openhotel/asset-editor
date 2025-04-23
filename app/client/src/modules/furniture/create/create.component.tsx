@@ -160,7 +160,7 @@ export const CreateFurnitureComponent: React.FC = () => {
                 className={styles.button}
                 onClick={onDownloadFurniture}
               >
-                <BYIconComponent className={styles.icon} /> Download zip
+                <BYIconComponent className={styles.icon} /> Download furniture
               </ButtonComponent>
             </>
           ) : (
