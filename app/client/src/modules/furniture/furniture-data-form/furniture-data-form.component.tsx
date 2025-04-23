@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import { InputComponent, SelectorComponent } from "@oh/components";
+import { InputComponent, SelectorComponent } from "@openhotel/components";
 import { FurnitureDirection, FurnitureType } from "shared/enums";
 import { SpriteComponent } from "shared/components";
 import { useFurniture, useSideContent } from "shared/hooks";
