@@ -1,5 +1,4 @@
 import {
-  FurnitureActionType,
   FurnitureDirection,
   FurnitureType,
 } from "shared/enums/furniture.enum.ts";
@@ -42,11 +41,13 @@ export type furnitureDirectionItem = {
   textures: FurnitureTexture[];
 };
 
-export type FurnitureSitAction = {
-  type: FurnitureActionType.SIT;
+export type FurnitureAction = {
+  id: string;
+  label: string;
+  states: string[];
+  defaultState: string;
+  stateTextures?: Record<string, string>;
 };
-
-export type FurnitureAction = FurnitureSitAction;
 
 export type FurnitureData = {
   version: 1;
