@@ -36,6 +36,7 @@ export type FurnitureTexture = {
 
 export type FurnitureDirectionItem = {
   textures: FurnitureTexture[];
+  stateTextures?: Record<string, Record<string, FurnitureTexture>>;
 };
 
 export type FurnitureAction = {
@@ -43,7 +44,6 @@ export type FurnitureAction = {
   label: string;
   states: string[];
   defaultState: string;
-  stateTextures?: Record<string, string>;
 };
 
 export type FurnitureData = {

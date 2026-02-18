@@ -14,7 +14,6 @@ import styles from "./furniture-data-actions.module.scss";
 
 type ActionItemProps = {
   action: FurnitureAction;
-  texturesOptions: { key: string; value: string }[];
   onChangeField: (
     actionId: string,
     field: keyof FurnitureAction,
@@ -22,19 +21,13 @@ type ActionItemProps = {
   onChangeDefaultState: (
     actionId: string,
   ) => (option: { key: string } | null) => void;
-  onChangeStateTexture: (
-    actionId: string,
-    state: string,
-  ) => (option: { key: string } | null) => void;
   onRemove: (actionId: string) => () => void;
 };
 
 const FurnitureActionItemComponent: React.FC<ActionItemProps> = ({
   action,
-  texturesOptions,
   onChangeField,
   onChangeDefaultState,
-  onChangeStateTexture,
   onRemove,
 }) => {
   const stateOptions = useMemo(
@@ -66,18 +59,6 @@ const FurnitureActionItemComponent: React.FC<ActionItemProps> = ({
           clearable={false}
         />
       </div>
-      {action.states.map((state) => (
-        <div key={state} className={styles.row}>
-          <InputComponent placeholder="state" value={state} disabled />
-          <SelectorComponent
-            placeholder="texture"
-            defaultOption={action.stateTextures?.[state] ?? null}
-            options={texturesOptions}
-            onChange={onChangeStateTexture(action.id, state)}
-            clearable
-          />
-        </div>
-      ))}
       <ButtonComponent color="grey" onClick={onRemove(action.id)}>
         Remove
       </ButtonComponent>
@@ -88,14 +69,9 @@ const FurnitureActionItemComponent: React.FC<ActionItemProps> = ({
 export const FurnitureDataActionsComponent: React.FC = () => {
   const { data, setFurniture } = useFurniture();
 
-  const { furniture, sheet } = data;
+  const { furniture } = data;
 
   const [newStatesInput, setNewStatesInput] = useState<string>("");
-
-  const texturesOptions = useMemo(
-    () => Object.keys(sheet?.frames ?? {}).map((t) => ({ key: t, value: t })),
-    [sheet],
-  );
 
   const $onAddAction = useCallback(
     (formData) => {
@@ -115,7 +91,6 @@ export const FurnitureDataActionsComponent: React.FC = () => {
         label: (formData.label as string)?.trim() || formData.id.trim(),
         states,
         defaultState,
-        stateTextures: {},
       };
 
       setFurniture({
@@ -150,19 +125,12 @@ export const FurnitureDataActionsComponent: React.FC = () => {
                 .split(",")
                 .map((s) => s.trim())
                 .filter(Boolean);
-              const stateTextures: Record<string, string> = {};
-              for (const state of states) {
-                if (action.stateTextures?.[state]) {
-                  stateTextures[state] = action.stateTextures[state];
-                }
-              }
               return {
                 ...action,
                 states,
                 defaultState: states.includes(action.defaultState)
                   ? action.defaultState
                   : states[0] ?? "",
-                stateTextures,
               };
             }
             return { ...action, [field]: value };
@@ -186,25 +154,6 @@ export const FurnitureDataActionsComponent: React.FC = () => {
     [setFurniture, furniture],
   );
 
-  const $onChangeStateTexture = useCallback(
-    (actionId: string, state: string) => (option: { key: string } | null) => {
-      setFurniture({
-        ...furniture,
-        actions: furniture.actions.map((action) => {
-          if (action.id !== actionId) return action;
-          const stateTextures = { ...(action.stateTextures ?? {}) };
-          if (option?.key) {
-            stateTextures[state] = option.key;
-          } else {
-            delete stateTextures[state];
-          }
-          return { ...action, stateTextures };
-        }),
-      });
-    },
-    [setFurniture, furniture],
-  );
-
   return (
     <>
       <label>actions</label>
@@ -213,10 +162,8 @@ export const FurnitureDataActionsComponent: React.FC = () => {
           <FurnitureActionItemComponent
             key={action.id}
             action={action}
-            texturesOptions={texturesOptions}
             onChangeField={$onChangeActionField}
             onChangeDefaultState={$onChangeDefaultState}
-            onChangeStateTexture={$onChangeStateTexture}
             onRemove={$onRemoveAction}
           />
         ))}
